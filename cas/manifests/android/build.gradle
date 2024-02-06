@@ -1,0 +1,100 @@
+repositories {
+    google()
+    mavenCentral()
+
+    {{#cas.ironsource_android}}
+    maven { url = "https://android-sdk.is.com/" } // IronSource
+    {{/cas.ironsource_android}}
+
+    {{#cas.superawesome_android}}
+    maven { url = "https://aa-sdk.s3-eu-west-1.amazonaws.com/android_repo" } // SuperAwesome
+    {{/cas.superawesome_android}}
+
+    {{#cas.mintegral_android}}
+    maven { url = "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" } // Mintegral
+    {{/cas.mintegral_android}}
+
+    {{#cas.pangle_android}}
+    maven { url = "https://artifact.bytedance.com/repository/pangle" } // Pangle
+    {{/cas.pangle_android}}
+
+    {{#cas.charboost_android}}
+    maven { url = "https://cboost.jfrog.io/artifactory/chartboost-ads/" } // Chartboost
+    {{/cas.charboost_android}}
+
+    {{#cas.smaato_android}}
+    maven { url = "https://s3.amazonaws.com/smaato-sdk-releases/" } // Smaato
+    {{/cas.smaato_android}}
+}
+
+dependencies {
+    implementation("com.cleveradssolutions:cas-sdk:3.5.2")
+
+    {{#cas.ironsource_android}}
+    implementation("com.cleveradssolutions:ironsource:7.7.0.0")   // IronSource
+    {{/cas.ironsource_android}}
+
+    {{#cas.admob_android}}
+    implementation("com.cleveradssolutions:google:22.6.0.0")      // Google Ads | Admob
+    {{/cas.admob_android}}
+
+    {{#cas.unityads_android}}
+    implementation("com.cleveradssolutions:unity:4.9.2.2")        // Unity Ads
+    {{/cas.unityads_android}}
+
+    {{#cas.liftoff_android}}
+    implementation("com.cleveradssolutions:vungle:7.1.0.0")       // LiftoffMonetize
+    {{/cas.liftoff_android}}
+
+    {{#cas.charboost_android}}
+    implementation("com.cleveradssolutions:chartboost:9.6.0.0")   // Chartboost
+    {{/cas.charboost_android}}
+
+    {{#cas.fyber_android}}
+    implementation("com.cleveradssolutions:fyber:8.2.5.0")        // DT Exchange
+    {{/cas.fyber_android}}
+
+    {{#cas.mintegral_android}}
+    implementation("com.cleveradssolutions:mintegral:16.5.91.0")  // Mintegral
+    {{/cas.mintegral_android}}
+
+    {{#cas.applovin_android}}
+    implementation("com.cleveradssolutions:applovin:12.1.0.0")    // AppLovin
+    {{/cas.applovin_android}}
+
+    {{#cas.facebook_android}}
+    implementation("com.cleveradssolutions:facebook:6.16.0.1")    // Meta Audience Network
+    {{/cas.facebook_android}}
+
+    {{#cas.pangle_android}}
+    implementation("com.cleveradssolutions:pangle:5.7.0.2")       // Pangle
+    {{/cas.pangle_android}}
+
+    {{#cas.bigo_android}}
+    implementation("com.cleveradssolutions:bigo:4.4.0.0")         // Bigo
+    {{/cas.bigo_android}}
+
+    {{#cas.yandex_android}}
+    implementation("com.cleveradssolutions:yandex:26.3.0.0")      // Yandex Ads
+    {{/cas.yandex_android}}
+
+    {{#cas.hyprmx_android}}
+    implementation("com.cleveradssolutions:hyprmx:6.2.3.0")       // HyprMX
+    {{/cas.hyprmx_android}}
+
+    {{#cas.kidoz_android}}
+    implementation("com.cleveradssolutions:kidoz:9.0.2.0")        // Kidoz
+    {{/cas.kidoz_android}}
+
+    {{#cas.superawesome_android}}
+    implementation("com.cleveradssolutions:superawesome:9.3.0.0") // SuperAwesome
+    {{/cas.superawesome_android}}
+
+    {{#cas.inmobi_android}}
+    //implementation("com.cleveradssolutions:inmobi:10.6.2.1")      // InMobi // Crashing
+    {{/cas.inmobi_android}}
+
+    {{#cas.mytarget_android}}
+    implementation("com.cleveradssolutions:mytarget:5.20.0.1")    // MyTarget
+    {{/cas.mytarget_android}}
+}

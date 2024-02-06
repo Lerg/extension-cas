@@ -1,0 +1,130 @@
+- name: cas
+  type: table
+  desc: CAS Extension
+
+  members:
+
+  - name: init
+    type: function
+    desc: Initializes the extension. This function has to be called first before trying to show any ads.
+
+    parameters:
+      - name: params
+        type: table
+        desc: Contains parameters for the call.
+
+  - name: validate_integration
+    type: function
+    desc: Prints to console SDK integration information.
+
+  - name: load
+    type: function
+    desc: Loads a specified ad type. No need to call this function, the ads is loaded automatically.
+
+    parameters:
+      - name: ad_type
+        type: number
+        desc: cas.BANNER, cas.INTERSTITIAL or cas.REWARDED.
+
+  - name: is_loaded
+    type: function
+    desc: Returns true if the specified ad type has been loaded.
+
+    parameters:
+      - name: ad_type
+        type: number
+        desc: cas.BANNER, cas.INTERSTITIAL or cas.REWARDED.
+
+    return:
+      - name: is_loaded
+        type: boolean
+        desc: Is loaded.
+
+  - name: show
+    type: function
+    desc: Displays a loaded ad.
+
+    parameters:
+      - name: ad_type
+        type: number
+        desc: cas.BANNER, cas.INTERSTITIAL or cas.REWARDED.
+
+  - name: hide_banner
+    type: function
+    desc: Removes a loaded banner from the screen.
+
+  - name: set
+    type: function
+    desc: Changes settings.
+
+    parameters:
+      - name: param
+        type: number
+        desc: Parameter id.
+
+      - name: value
+        type: number
+        desc: Value id.
+
+  - name: BANNER
+    type: number
+
+  - name: INTERSTITIAL
+    type: number
+
+  - name: REWARDED
+    type: number
+
+  - name: INIT
+    type: number
+
+  - name: LOADED
+    type: number
+
+  - name: FAILED_TO_LOAD
+    type: number
+
+  - name: SHOWN
+    type: number
+
+  - name: FAILED
+    type: number
+
+  - name: CLICKED
+    type: number
+
+  - name: COMPLETE
+    type: number
+
+  - name: CLOSED
+    type: number
+
+  - name: TAGGED_AUDIENCE
+    type: number
+
+  - name: AUDIENCE_CHILDREN
+    type: number
+
+  - name: AUDIENCE_NOT_CHILDREN
+    type: number
+
+  - name: AUDIENCE_UNDEFINED
+    type: number
+
+  - name: USER_CONSENT
+    type: number
+
+  - name: CONSENT_ACCEPTED
+    type: number
+
+  - name: CONSENT_DENIED
+    type: number
+
+  - name: CCPA
+    type: number
+
+  - name: CCPA_OPT_IN_SALE
+    type: number
+
+  - name: CCPA_OPT_OUT_SALE
+    type: number
