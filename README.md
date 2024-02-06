@@ -2,6 +2,9 @@
 
 The CAS.AI (CleverAdsSolutions) extension lets you display banner, interstitial and rewarded ads.
 
+Official website https://cas.ai
+Official andrdoid documentation https://github.com/cleveradssolutions/CAS-Android/wiki
+
 NOTE: Banners are not implemented. Extension supports Android only for now.
 
 # Setup
@@ -14,11 +17,31 @@ https://github.com/Lerg/extension-cas/archive/master.zip
 
 Then select `Project -> Fetch Libraries` to download the extension in your project.
 
-You need to set the AdMob App Id for your iOS and/or Android app in `game.project`. To do so open your `game.project` and add these lines:
+If you are using Admob you need to set the AdMob App Id for your iOS and/or Android app in `game.project`. To do so open your `game.project` and add these lines:
 ```
-[admob]
-ios_app_id = ca-app-pub-***~***
-android_app_id = ca-app-pub-***~***
+[cas]
+admob_android_app_id = ca-app-pub-***~***
+```
+
+To control which ad providers are integrated add these lines to the `[cas]` section in `game.project`:
+```
+admob_android = 1
+applovin_android = 1
+bigo_android = 1
+charboost_android = 1
+facebook_android = 1
+fyber_android = 1
+hyprmx_android = 1
+inmobi_android = 0
+ironsource_android = 1
+kidoz_android = 0
+liftoff_android = 1
+mintegral_android = 1
+mytarget_android = 0
+pangle_android = 1
+superawesome_android = 0
+unityads_android = 1
+yandex_android = 1
 ```
 
 Replace `ca-app-pub-***~***` with your app ids. It can now be viewed or changed in the normal view of the `game.project` file.
