@@ -17,7 +17,6 @@ dynamic_orientation = 1
 shared_state = 1
 
 [android]
-package = com.spiralcodestudio.hexled
 app_icon_36x36 = /main/images/icon/36.png
 app_icon_48x48 = /main/images/icon/48.png
 app_icon_72x72 = /main/images/icon/72.png
@@ -62,3 +61,4 @@ pangle_android = 1
 superawesome_android = 0
 unityads_android = 1
 yandex_android = 1
+

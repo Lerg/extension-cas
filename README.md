@@ -94,12 +94,12 @@ Displays a loaded ad.
 
 Removes a loaded banner from the screen.
 
-### cas.set(`param`: _number_, `value`: _number_)
+### cas.set(`param`: _number_, `value`: _number_|_boolean_|_table_)
 
 Changes settings.
 
 - `param`: _number_ Parameter id.
-- `value`: _number_ Value id.
+- `value`: _number_|_boolean_|_table_ Value id or value itself.
 
 - `cas.TAGGED_AUDIENCE`:
 	- `cas.AUDIENCE_CHILDREN`
@@ -111,6 +111,16 @@ Changes settings.
 - `cas.CCPA`:
 	- `cas.CCPA_OPT_IN_SALE`
 	- `cas.CCPA_OPT_OUT_SALE`
+- `cas.TARGETING_GENDER`:
+	- `cas.GENDER_UNKNOWN`
+	- `cas.GENDER_MALE`
+	- `cas.GENDER_FEMALE`
+- `cas.TARGETING_AGE`:
+	- `value`: _number_ Age as a number.
+- `cas.TARGETING_KEYWORDS`:
+	- `value`: _table_ Array of string keywords.
+- `cas.MUTED_AD_SOUNDS`:
+	- `value`: _boolean_ Muted if `true`.
 
 ---
 

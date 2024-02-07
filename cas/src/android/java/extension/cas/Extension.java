@@ -60,7 +60,17 @@ public class Extension {
 
 		CCPA,
 		CCPA_OPT_IN_SALE,
-		CCPA_OPT_OUT_SALE
+		CCPA_OPT_OUT_SALE,
+
+		MUTED_AD_SOUNDS,
+
+		TARGETING_AGE,
+		TARGETING_GENDER,
+		TARGETING_KEYWORDS,
+
+		GENDER_UNKNOWN,
+		GENDER_MALE,
+		GENDER_FEMALE
 	};
 
 	@SuppressWarnings("unused")
@@ -291,31 +301,64 @@ public class Extension {
 	// cas.set(param, value)
 	private int set(long L) {
 		Utils.check_arg_count(L, 2);
-		if (Lua.type(L, 1) != Lua.Type.NUMBER) return 0;
-		if (Lua.type(L, 2) != Lua.Type.NUMBER) return 0;
-		final int param = (int)Lua.tonumber(L, 1);
-		final int value = (int)Lua.tonumber(L, 2);
+		final int param_index = 1;
+		final int value_index = 2;
+		if (Lua.type(L, param_index) != Lua.Type.NUMBER) return 0;
+		final int param = (int)Lua.tonumber(L, param_index);
 
-		if (param == LuaConsts.TAGGED_AUDIENCE.ordinal()) {
-			if (value == LuaConsts.AUDIENCE_CHILDREN.ordinal()) {
-				CAS.getSettings().setTaggedAudience(Audience.CHILDREN);
-			} else if (value == LuaConsts.AUDIENCE_NOT_CHILDREN.ordinal()) {
-				CAS.getSettings().setTaggedAudience(Audience.NOT_CHILDREN);
-			} else if (value == LuaConsts.AUDIENCE_UNDEFINED.ordinal()) {
-				CAS.getSettings().setTaggedAudience(Audience.UNDEFINED);
+		if (param == LuaConsts.TAGGED_AUDIENCE.ordinal()
+		|| param == LuaConsts.USER_CONSENT.ordinal()
+		|| param == LuaConsts.CCPA.ordinal()
+		|| param == LuaConsts.TARGETING_AGE.ordinal()
+		|| param == LuaConsts.TARGETING_GENDER.ordinal()) {
+			if (Lua.type(L, value_index) != Lua.Type.NUMBER) return 0;
+			final int value = (int)Lua.tonumber(L, value_index);
+
+			if (param == LuaConsts.TAGGED_AUDIENCE.ordinal()) {
+				if (value == LuaConsts.AUDIENCE_CHILDREN.ordinal()) {
+					CAS.getSettings().setTaggedAudience(Audience.CHILDREN);
+				} else if (value == LuaConsts.AUDIENCE_NOT_CHILDREN.ordinal()) {
+					CAS.getSettings().setTaggedAudience(Audience.NOT_CHILDREN);
+				} else if (value == LuaConsts.AUDIENCE_UNDEFINED.ordinal()) {
+					CAS.getSettings().setTaggedAudience(Audience.UNDEFINED);
+				}
+			} else if (param == LuaConsts.USER_CONSENT.ordinal()) {
+				if (value == LuaConsts.CONSENT_ACCEPTED.ordinal()) {
+					CAS.getSettings().setUserConsent(ConsentStatus.ACCEPTED);
+				} else if (value == LuaConsts.CONSENT_DENIED.ordinal()) {
+					CAS.getSettings().setUserConsent(ConsentStatus.DENIED);
+				}
+			} else if (param == LuaConsts.CCPA.ordinal()) {
+				if (value == LuaConsts.CCPA_OPT_IN_SALE.ordinal()) {
+					CAS.getSettings().setCcpaStatus(CCPAStatus.OPT_IN_SALE);
+				} else if (value == LuaConsts.CCPA_OPT_OUT_SALE.ordinal()) {
+					CAS.getSettings().setCcpaStatus(CCPAStatus.OPT_OUT_SALE);
+				}
+			} else if (param == LuaConsts.TARGETING_GENDER.ordinal()) {
+				if (value == LuaConsts.GENDER_MALE.ordinal()) {
+					CAS.getTargetingOptions().setGender(TargetingOptions.GENDER_MALE);
+				} else if (value == LuaConsts.GENDER_FEMALE.ordinal()) {
+					CAS.getTargetingOptions().setGender(TargetingOptions.GENDER_FEMALE);
+				}
+			} else if (param == LuaConsts.TARGETING_AGE.ordinal()) {
+				CAS.getTargetingOptions().setAge(value);
 			}
-		} else if (param == LuaConsts.USER_CONSENT.ordinal()) {
-			if (value == LuaConsts.CONSENT_ACCEPTED.ordinal()) {
-				CAS.getSettings().setUserConsent(ConsentStatus.ACCEPTED);
-			} else if (value == LuaConsts.CONSENT_DENIED.ordinal()) {
-				CAS.getSettings().setUserConsent(ConsentStatus.DENIED);
+		} else if (param == LuaConsts.MUTED_AD_SOUNDS.ordinal()) {
+			if (Lua.type(L, value_index) != Lua.Type.BOOLEAN) return 0;
+			final boolean value = Lua.toboolean(L, value_index);
+			CAS.getSettings().setMutedAdSounds(value);
+		} else if (param == LuaConsts.TARGETING_KEYWORDS.ordinal()) {
+			if (Lua.type(L, value_index) != Lua.Type.TABLE) return 0;
+			HashSet<String> keywords = new HashSet<String>();
+			final int array_length = (int)Lua.objlen(L, value_index);
+			for (int i = 1; i <= array_length; ++i) {
+				Lua.rawget(L, value_index, i);
+				if (Lua.type(L, -1) == Lua.Type.STRING) {
+					keywords.add(Lua.tostring(L, -1));
+				}
+				Lua.pop(L, 1);
 			}
-		} else if (param == LuaConsts.CCPA.ordinal()) {
-			if (value == LuaConsts.CCPA_OPT_IN_SALE.ordinal()) {
-				CAS.getSettings().setCcpaStatus(CCPAStatus.OPT_IN_SALE);
-			} else if (value == LuaConsts.CCPA_OPT_OUT_SALE.ordinal()) {
-				CAS.getSettings().setCcpaStatus(CCPAStatus.OPT_OUT_SALE);
-			}
+			CAS.getTargetingOptions().setKeywords(keywords);
 		}
 		return 0;
 	}

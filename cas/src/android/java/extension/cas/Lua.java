@@ -46,6 +46,8 @@ class Lua {
 
 	private static native void lua_settable(long L, int index);
 
+	private static native long lua_objlen(long L, int index);
+
 	private static native int lua_ref(long L, int index);
 
 	private static native void lua_unref(long L, int index, int ref);
@@ -140,6 +142,10 @@ class Lua {
 
 	static void settable(long L, int index) {
 		lua_settable(L, index);
+	}
+
+	static long objlen(long L, int index) {
+		return lua_objlen(L, index);
 	}
 
 	static int ref(long L, int index) {

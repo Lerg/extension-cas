@@ -28,6 +28,7 @@
 #define JAVA_LUA_TOSTRING JAVA_FUNCTION_NAME_EXPANDED(EXTENSION_NAME, lua_1tostring)
 #define JAVA_LUA_TYPE JAVA_FUNCTION_NAME_EXPANDED(EXTENSION_NAME, lua_1type)
 #define JAVA_LUA_SETTABLE JAVA_FUNCTION_NAME_EXPANDED(EXTENSION_NAME, lua_1settable)
+#define JAVA_LUA_OBJLEN JAVA_FUNCTION_NAME_EXPANDED(EXTENSION_NAME, lua_1objlen)
 #define JAVA_LUA_REF JAVA_FUNCTION_NAME_EXPANDED(EXTENSION_NAME, lua_1ref)
 #define JAVA_LUA_UNREF JAVA_FUNCTION_NAME_EXPANDED(EXTENSION_NAME, lua_1unref)
 
@@ -54,6 +55,7 @@ extern "C" {
 	jstring JNICALL JAVA_LUA_TOSTRING(JNIEnv *env, jobject obj, jlong L, jint index);
 	jint JNICALL JAVA_LUA_TYPE(JNIEnv *env, jobject obj, jlong L, jint index);
 	void JNICALL JAVA_LUA_SETTABLE(JNIEnv *env, jobject obj, jlong L, jint index);
+	jlong JNICALL JAVA_LUA_OBJLEN(JNIEnv *env, jobject obj, jlong L, jint index);
 	jint JNICALL JAVA_LUA_REF(JNIEnv *env, jobject obj, jlong L, jint index);
 	void JNICALL JAVA_LUA_UNREF(JNIEnv *env, jobject obj, jlong L, jint index, jint ref);
 }

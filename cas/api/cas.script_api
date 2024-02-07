@@ -128,3 +128,24 @@
 
   - name: CCPA_OPT_OUT_SALE
     type: number
+
+  - name: MUTED_AD_SOUNDS
+    type: number
+
+  - name: TARGETING_AGE
+    type: number
+
+  - name: TARGETING_GENDER
+    type: number
+
+  - name: TARGETING_KEYWORDS
+    type: number
+
+  - name: GENDER_UNKNOWN
+    type: number
+
+  - name: GENDER_MALE
+    type: number
+
+  - name: GENDER_FEMALE
+    type: number

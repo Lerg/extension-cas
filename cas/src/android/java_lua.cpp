@@ -60,43 +60,47 @@ extern "C" {
 	JNIEXPORT void JNICALL JAVA_LUA_NEWTABLE(JNIEnv *env, jobject obj, jlong L) {
 		lua_newtable((lua_State*)L);
 	}
-	
+
 	JNIEXPORT jint JNICALL JAVA_LUA_NEXT(JNIEnv *env, jobject obj, jlong L, jint index) {
 		return lua_next((lua_State*)L, index);
 	}
-	
+
 	JNIEXPORT void JNICALL JAVA_LUA_RAWGETI(JNIEnv *env, jobject obj, jlong L, jint index, jint n) {
 		lua_rawgeti((lua_State*)L, index, n);
 	}
-	
+
 	JNIEXPORT jboolean JNICALL JAVA_LUA_TOBOOLEAN(JNIEnv *env, jobject obj, jlong L, jint index) {
 		return (bool)lua_toboolean((lua_State*)L, index);
 	}
-	
+
 	JNIEXPORT jdouble JNICALL JAVA_LUA_TONUMBER(JNIEnv *env, jobject obj, jlong L, jint index) {
 		return lua_tonumber((lua_State*)L, index);
 	}
-	
+
 	JNIEXPORT jlong JNICALL JAVA_LUA_TOPOINTER(JNIEnv *env, jobject obj, jlong L, jint index) {
 		return (jlong)lua_topointer((lua_State*)L, index);
 	}
-	
+
 	JNIEXPORT jstring JNICALL JAVA_LUA_TOSTRING(JNIEnv *env, jobject obj, jlong L, jint index) {
 		return env->NewStringUTF(lua_tostring((lua_State*)L, index));
 	}
-	
+
 	JNIEXPORT jint JNICALL JAVA_LUA_TYPE(JNIEnv *env, jobject obj, jlong L, jint index) {
 		return lua_type((lua_State*)L, index);
 	}
-	
+
 	JNIEXPORT void JNICALL JAVA_LUA_SETTABLE(JNIEnv *env, jobject obj, jlong L, jint index) {
 		lua_settable((lua_State*)L, index);
 	}
-	
+
+	JNIEXPORT jlong JNICALL JAVA_LUA_OBJLEN(JNIEnv *env, jobject obj, jlong L, jint index) {
+		return lua_objlen((lua_State*)L, index);
+	}
+
 	JNIEXPORT jint JNICALL JAVA_LUA_REF(JNIEnv *env, jobject obj, jlong L, jint index) {
 		return luaL_ref((lua_State*)L, index);
 	}
-	
+
 	JNIEXPORT void JNICALL JAVA_LUA_UNREF(JNIEnv *env, jobject obj, jlong L, jint index, jint ref) {
 		luaL_unref((lua_State*)L, index, ref);
 	}
