@@ -28,73 +28,77 @@ repositories {
 }
 
 dependencies {
-    implementation("com.cleveradssolutions:cas-sdk:3.5.2")
+    implementation("com.cleveradssolutions:cas-sdk:+")
+
+    {{#cas.adcolony_android}}
+    implementation("com.cleveradssolutions:adcolony:+")     // AdColony
+    {{/cas.adcolony_android}}
 
     {{#cas.ironsource_android}}
-    implementation("com.cleveradssolutions:ironsource:7.7.0.0")   // IronSource
+    implementation("com.cleveradssolutions:ironsource:+")   // IronSource
     {{/cas.ironsource_android}}
 
     {{#cas.admob_android}}
-    implementation("com.cleveradssolutions:google:22.6.0.0")      // Google Ads | Admob
+    implementation("com.cleveradssolutions:google:+")       // Google Ads | Admob
     {{/cas.admob_android}}
 
     {{#cas.unityads_android}}
-    implementation("com.cleveradssolutions:unity:4.9.2.2")        // Unity Ads
+    implementation("com.cleveradssolutions:unity:+")        // Unity Ads
     {{/cas.unityads_android}}
 
     {{#cas.liftoff_android}}
-    implementation("com.cleveradssolutions:vungle:7.1.0.0")       // LiftoffMonetize
+    implementation("com.cleveradssolutions:vungle:+")       // LiftoffMonetize
     {{/cas.liftoff_android}}
 
     {{#cas.charboost_android}}
-    implementation("com.cleveradssolutions:chartboost:9.6.0.0")   // Chartboost
+    implementation("com.cleveradssolutions:chartboost:+")   // Chartboost
     {{/cas.charboost_android}}
 
     {{#cas.fyber_android}}
-    implementation("com.cleveradssolutions:fyber:8.2.5.0")        // DT Exchange
+    implementation("com.cleveradssolutions:fyber:+")        // DT Exchange
     {{/cas.fyber_android}}
 
     {{#cas.mintegral_android}}
-    implementation("com.cleveradssolutions:mintegral:16.5.91.0")  // Mintegral
+    implementation("com.cleveradssolutions:mintegral:+")    // Mintegral
     {{/cas.mintegral_android}}
 
     {{#cas.applovin_android}}
-    implementation("com.cleveradssolutions:applovin:12.1.0.0")    // AppLovin
+    implementation("com.cleveradssolutions:applovin:+")     // AppLovin
     {{/cas.applovin_android}}
 
     {{#cas.facebook_android}}
-    implementation("com.cleveradssolutions:facebook:6.16.0.1")    // Meta Audience Network
+    implementation("com.cleveradssolutions:facebook:+")     // Meta Audience Network
     {{/cas.facebook_android}}
 
     {{#cas.pangle_android}}
-    implementation("com.cleveradssolutions:pangle:5.7.0.2")       // Pangle
+    implementation("com.cleveradssolutions:pangle:+")       // Pangle
     {{/cas.pangle_android}}
 
     {{#cas.bigo_android}}
-    implementation("com.cleveradssolutions:bigo:4.4.0.0")         // Bigo
+    implementation("com.cleveradssolutions:bigo:+")         // Bigo
     {{/cas.bigo_android}}
 
     {{#cas.yandex_android}}
-    implementation("com.cleveradssolutions:yandex:26.3.0.0")      // Yandex Ads
+    implementation("com.cleveradssolutions:yandex:+")       // Yandex Ads
     {{/cas.yandex_android}}
 
     {{#cas.hyprmx_android}}
-    implementation("com.cleveradssolutions:hyprmx:6.2.3.0")       // HyprMX
+    implementation("com.cleveradssolutions:hyprmx:+")       // HyprMX
     {{/cas.hyprmx_android}}
 
     {{#cas.kidoz_android}}
-    implementation("com.cleveradssolutions:kidoz:9.0.2.0")        // Kidoz
+    implementation("com.cleveradssolutions:kidoz:+")        // Kidoz
     {{/cas.kidoz_android}}
 
     {{#cas.superawesome_android}}
-    implementation("com.cleveradssolutions:superawesome:9.3.0.0") // SuperAwesome
+    implementation("com.cleveradssolutions:superawesome:+") // SuperAwesome
     {{/cas.superawesome_android}}
 
     {{#cas.inmobi_android}}
-    //implementation("com.cleveradssolutions:inmobi:10.6.2.1")      // InMobi // Crashing
+    //implementation("com.cleveradssolutions:inmobi:+")     // InMobi // Crashing
     {{/cas.inmobi_android}}
 
     {{#cas.mytarget_android}}
-    implementation("com.cleveradssolutions:mytarget:5.20.0.1")    // MyTarget
+    implementation("com.cleveradssolutions:mytarget:+")     // MyTarget
     {{/cas.mytarget_android}}
 }

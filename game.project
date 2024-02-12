@@ -45,6 +45,7 @@ include_dirs = cas
 [cas]
 admob_android_app_id = ca-app-pub-3940256099942544~1458002511
 admob_android = 1
+adcolony_android = 1
 applovin_android = 1
 bigo_android = 1
 charboost_android = 1
@@ -61,4 +62,3 @@ pangle_android = 1
 superawesome_android = 0
 unityads_android = 1
 yandex_android = 1
-
