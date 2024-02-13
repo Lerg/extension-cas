@@ -25,6 +25,7 @@ admob_android_app_id = ca-app-pub-***~***
 
 To control which ad providers are integrated add these lines to the `[cas]` section in `game.project`:
 ```
+adcolony_android = 1
 admob_android = 1
 applovin_android = 1
 bigo_android = 1
